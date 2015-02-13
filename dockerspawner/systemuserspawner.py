@@ -92,11 +92,11 @@ class SystemUserSpawner(DockerSpawner):
         rs=i.execute()
         row=rs.fetchone()
         
-        env.update(dict(
+        '''env.update(dict(
             USER=row['name'],
             USER_ID=row['id'],
             HOME=self.homedir
-        ))
+        ))'''
         return env
 
     @gen.coroutine
