@@ -85,14 +85,14 @@ class SystemUserSpawner(DockerSpawner):
     def _env_default(self):
         env = super(SystemUserSpawner, self)._env_default()
         
-        db = create_engine('mysql+mysqlconnector://root:password@9.26.148.84:3306/jupyterhub')
+        '''db = create_engine('mysql+mysqlconnector://root:password@9.26.148.84:3306/jupyterhub')
         metadata = MetaData(db)
         users=Table('users', metadata, autoload=True)
         i = users.select()
         rs=i.execute()
         row=rs.fetchone()
         
-        '''env.update(dict(
+        env.update(dict(
             USER=row['name'],
             USER_ID=row['id'],
             HOME=self.homedir
