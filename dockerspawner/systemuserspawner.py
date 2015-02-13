@@ -6,7 +6,7 @@ from IPython.utils.traitlets import (
 )
 from tornado import gen
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData,
 
 
 class SystemUserSpawner(DockerSpawner):
@@ -86,7 +86,7 @@ class SystemUserSpawner(DockerSpawner):
         env = super(SystemUserSpawner, self)._env_default()
         
         db = create_engine('mysql+mysqlconnector://root:password@9.26.148.84:3306/jupyterhub')
-        '''metadata = MetaData(db)
+        metadata = MetaData(db)
         users=Table('users', metadata, autoload=True)
         i = users.select()
         rs=i.execute()
@@ -96,7 +96,7 @@ class SystemUserSpawner(DockerSpawner):
             USER=row['name'],
             USER_ID=row['id'],
             HOME=self.homedir
-        ))'''
+        ))
         return env
 
     @gen.coroutine
