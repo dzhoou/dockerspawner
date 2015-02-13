@@ -5,7 +5,8 @@ from IPython.utils.traitlets import (
     Unicode,
 )
 from tornado import gen
-# from sqlalchemy import *
+
+from sqlalchemy import *
 
 
 class SystemUserSpawner(DockerSpawner):
