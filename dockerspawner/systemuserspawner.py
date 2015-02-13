@@ -6,7 +6,7 @@ from IPython.utils.traitlets import (
 )
 from tornado import gen
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine,  MetaData, Table
 
 
 class SystemUserSpawner(DockerSpawner):
