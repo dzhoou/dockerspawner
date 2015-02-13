@@ -93,8 +93,8 @@ class SystemUserSpawner(DockerSpawner):
         row=rs.fetchone()
         
         env.update(dict(
-            USER=row[0],
-            USER_ID=row[1],
+            USER=row['name'],
+            USER_ID=row['id'],
             HOME=self.homedir
         ))
         return env
